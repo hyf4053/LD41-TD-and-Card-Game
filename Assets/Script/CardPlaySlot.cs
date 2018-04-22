@@ -36,9 +36,9 @@ public class CardPlaySlot : MonoBehaviour {
         //Build a turret
         GameObject towerToBuild = TowerManager.instance.GetTowerToBuild();
         tower = (GameObject)Instantiate(towerToBuild, transform.position+ offset, transform.rotation);
-
+        Debug.Log("Build");
     }
-
+    
     private void OnMouseEnter()
     {
         rend.material.color = hoverColor;

@@ -378,6 +378,7 @@
     <Compile Include="Assets\Script\Card\ItemDragHandler.cs" />
     <Compile Include="Assets\Script\Card\ItemDropHandler.cs" />
     <Compile Include="Assets\Script\CardPlaySlot.cs" />
+    <Compile Include="Assets\Script\CardUsing.cs" />
     <Compile Include="Assets\Script\Infinite\CameraMotor.cs" />
     <Compile Include="Assets\Script\Infinite\PlayerMotor.cs" />
     <Compile Include="Assets\Script\Infinite\TileManager.cs" />
