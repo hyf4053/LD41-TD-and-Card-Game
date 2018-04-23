@@ -12,7 +12,7 @@ public class EnemyManager : MonoBehaviour {
 	public Transform[] spawnPoints;
 	// Use this for initialization
 	void Start () {
-		InvokeRepeating("Spawn",spawnTime,spawnTime);
+		//InvokeRepeating("Spawn",spawnTime,spawnTime);
 	}
 	
 	void Spawn(){

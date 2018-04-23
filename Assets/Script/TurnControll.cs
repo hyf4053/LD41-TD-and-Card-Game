@@ -28,13 +28,14 @@ public class TurnControll : MonoBehaviour {
 		enemyManager.SetActive(true);
 		switchTurn.GetComponentInChildren<Text>().text = "waiting for your oppo";
 		//disable player card using
-		panel.SetActive(false);
+		//panel.SetActive(false);
 		Invoke("AIEndTurn",3f);
 	}
 
 	public void AIEndTurn(){
 		switchTurn.GetComponentInChildren<Text>().text = "Battle start!";
 		enemyManager.GetComponent<EnemyManager>().enabled = true;
+		enemyManager.GetComponent<EnemyManager>().InvokeRepeating("Spawn",0.1f,0.1f);
 		Invoke("EndBattle",10f);
 	}
 
@@ -42,7 +43,8 @@ public class TurnControll : MonoBehaviour {
 		enemyManager.GetComponent<EnemyManager>().CancalSpawn();
 		enemyManager.GetComponent<EnemyManager>().enabled = false;
 		enemyManager.SetActive(false);
-		panel.SetActive(true);
+		//panel.SetActive(true);
+		power = 9;
 	}
 
 	void AddCardToCards(){

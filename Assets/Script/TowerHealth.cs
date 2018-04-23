@@ -7,7 +7,7 @@ public class TowerHealth : MonoBehaviour {
     bool isDead, damaged;
     // Use this for initialization
     void Start () {
-		
+		totalHealt = 20;
 	}
 	
 	// Update is called once per frame

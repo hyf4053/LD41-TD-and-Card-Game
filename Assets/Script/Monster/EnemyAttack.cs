@@ -8,20 +8,27 @@ public class EnemyAttack : MonoBehaviour {
     public int attackDamage = 1;
 
     GameObject player;
+    GameObject tower;
     PlayerHealth playerHealth;
     EnemyHealth enemyHealth;
+
+    TowerHealth towerHealth;
     bool playerInRange;
     float timer;
 	// Use this for initialization
 	void Awake () {
         player = GameObject.FindGameObjectWithTag("Lane1");
         playerHealth = player.GetComponent<PlayerHealth>();
+
+        tower = GameObject.FindGameObjectWithTag("Tower");
+        towerHealth = tower.GetComponent<TowerHealth>();
+
         enemyHealth = GetComponent<EnemyHealth>();
 	}
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject == player)
+        if(other.gameObject == player||other.gameObject == tower)
         {
             playerInRange = true;
         }
@@ -29,7 +36,7 @@ public class EnemyAttack : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject == player)
+        if(other.gameObject == player||other.gameObject ==tower)
         {
             playerInRange = false;
         }
@@ -58,6 +65,10 @@ public class EnemyAttack : MonoBehaviour {
         if(playerHealth.currrentTotalHealt > 0)
         {
             playerHealth.TakeDamage(attackDamage);
+        }
+
+        if(towerHealth.totalHealt > 0){
+            towerHealth.TakeDamage(attackDamage);
         }
     }
 }
