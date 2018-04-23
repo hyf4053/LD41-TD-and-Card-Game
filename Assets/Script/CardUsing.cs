@@ -7,17 +7,23 @@ public class CardUsing : MonoBehaviour {
 
     public GameObject[] tile;
     bool cardChoose = false;
-
+    TurnControll turnControll;
     int cardCost;
     TowerManager towerManager;
     void Start(){
         towerManager = TowerManager.instance;
+        turnControll = TurnControll.instance;
     }
 
     public void SetTTower(){
         towerManager.SetCardToUse(towerManager.towerPrefab);
-        cardChoose = true;
         cardCost = 2;
+        if(turnControll.UsePower(cardCost)){
+            cardChoose = true;
+        }else{
+            cardChoose = false;
+            Debug.Log("Cannot afford card!");
+        }
     }
 
     public void SetMagicCard(){
@@ -59,6 +65,7 @@ public class CardUsing : MonoBehaviour {
          if (Input.GetMouseButtonDown(0)&&tile[0].GetComponent<CardPlaySlot>().tower == null)
         {
             SetToNull();
+            Destroy(gameObject);
         }
 
 

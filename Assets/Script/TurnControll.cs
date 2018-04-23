@@ -9,8 +9,14 @@ public class TurnControll : MonoBehaviour {
 	public GameObject panel;
 	public Button switchTurn;
 	public GameObject[] cards;
+	public int towerCardLength;
+
+	public static TurnControll instance;
+
+	public Text powerDis;
 
 	void Awake(){
+		instance = this;
 		power = 9;
 	}
 
@@ -23,14 +29,41 @@ public class TurnControll : MonoBehaviour {
 		switchTurn.GetComponentInChildren<Text>().text = "waiting for your oppo";
 		//disable player card using
 		panel.SetActive(false);
+		Invoke("AIEndTurn",3f);
+	}
+
+	public void AIEndTurn(){
+		switchTurn.GetComponentInChildren<Text>().text = "Battle start!";
+		enemyManager.GetComponent<EnemyManager>().enabled = true;
+		Invoke("EndBattle",10f);
+	}
+
+	public void EndBattle(){
+		enemyManager.GetComponent<EnemyManager>().CancalSpawn();
+		enemyManager.GetComponent<EnemyManager>().enabled = false;
+		enemyManager.SetActive(false);
+		panel.SetActive(true);
 	}
 
 	void AddCardToCards(){
-		cards = GameObject.FindGameObjectsWithTag("Card");
+		cards = GameObject.FindGameObjectsWithTag("CardTower");
 	}
 
-	public void UsePower(){
+	void  AddCardLength(){
+		towerCardLength = cards.Length;
+	}
 
+	public bool UsePower(int i){
+		if(i > power){
+			return false;
+		}else{
+			power -= i;
+			return true;
+		}
+	}
+
+	void Update(){
+		powerDis.text = "Power: "+power; 
 	}
 
 }

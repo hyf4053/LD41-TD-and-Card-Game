@@ -38,6 +38,10 @@ public class EnemyManager : MonoBehaviour {
             Instantiate(enemyThree, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
         }
 	}
+
+	public void CancalSpawn(){
+		CancelInvoke();
+	}
 	// Update is called once per frame
 	void Update () {
 		
