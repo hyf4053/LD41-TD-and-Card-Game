@@ -35,7 +35,7 @@ public class CardPlaySlot : MonoBehaviour {
         if(towerManager.GetTowerToBuild() == null)
             return;
         
-        if(tower != null)
+        if(tower != null&&towerManager.GetTowerToBuild().tag != "MagiEffect")
         {
             Debug.Log("We can't build here ! - TODO: display on screen");
             return;
@@ -44,8 +44,14 @@ public class CardPlaySlot : MonoBehaviour {
         //Build a turret
         GameObject towerToBuild = TowerManager.instance.GetTowerToBuild();
         tower = (GameObject)Instantiate(towerToBuild, transform.position+ offset, transform.rotation);
+        if(tower.tag=="MagiEffect"){
+            Debug.Log("This is magi effect");
+            Destroy(tower, 2.6f);
+        }else{
         isOccupied = true;
         Debug.Log("Build");
+        }
+        
     }
     
     private void OnMouseEnter()

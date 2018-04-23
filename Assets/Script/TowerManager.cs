@@ -18,6 +18,7 @@ public class TowerManager : MonoBehaviour {
 
     public GameObject towerPrefab;
     public GameObject magicCardPrefab;
+    public GameObject magiTowerPrefab;
     public GameObject trapCardPrefab;
     
     private GameObject towerToBuild;

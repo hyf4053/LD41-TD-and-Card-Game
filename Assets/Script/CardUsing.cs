@@ -21,6 +21,7 @@ public class CardUsing : MonoBehaviour {
         if(turnControll.UsePower(cardCost)){
             cardChoose = true;
         }else{
+            towerManager.SetCardToUse(null);
             cardChoose = false;
             Debug.Log("Cannot afford card!");
         }
@@ -28,7 +29,32 @@ public class CardUsing : MonoBehaviour {
 
     public void SetMagicCard(){
         towerManager.SetCardToUse(towerManager.magicCardPrefab);
-        cardChoose = true;
+        cardCost = 1;
+        if(turnControll.UsePower(cardCost)){
+            cardChoose = true;
+        }else{
+            towerManager.SetCardToUse(null);
+            cardChoose = false;
+            Debug.Log("Cannot afford card!");
+        }
+        //cardChoose = true;
+    }
+
+    public void SetMTower()
+    {
+        towerManager.SetCardToUse(towerManager.magiTowerPrefab);
+        cardCost = 2;
+        if (turnControll.UsePower(cardCost))
+        {
+            cardChoose = true;
+        }
+        else
+        {
+            towerManager.SetCardToUse(null);
+            cardChoose = false;
+            Debug.Log("Cannot afford card!");
+        }
+        //cardChoose = true;
     }
 
     public void SetToNull(){

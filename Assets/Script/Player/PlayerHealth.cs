@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour {
 
@@ -10,6 +11,10 @@ public class PlayerHealth : MonoBehaviour {
     public int healthForLaneOne,healthForLaneTwo,healthForLaneThree;
 
     bool isDead, damaged;
+
+    public Text text;
+    public GameObject result;
+
     PlayerShooting playerShooting;
 
 	// Use this for initialization
@@ -19,6 +24,7 @@ public class PlayerHealth : MonoBehaviour {
 		healthForLaneThree = 10;
         totalHealt = healthForLaneOne+healthForLaneTwo+healthForLaneThree;
         currrentTotalHealt = totalHealt;
+        text.text = "HP:30";
     }
 
     private void Awake()
@@ -31,6 +37,7 @@ public class PlayerHealth : MonoBehaviour {
         if (damaged)
         {
             //screen effect
+            text.text = "HP:" + totalHealt;
         }
         else
         {
@@ -45,8 +52,9 @@ public class PlayerHealth : MonoBehaviour {
         Debug.Log("Taken Damage!");
         damaged = true;
         totalHealt -= amount;
-        if (totalHealt <= 0 && !isDead)
+        if (totalHealt <= 0)
         {
+            Debug.Log("dead");
             Death();
         }
     }
@@ -54,6 +62,8 @@ public class PlayerHealth : MonoBehaviour {
     void Death()
     {
         isDead = true;
+        result.SetActive(true);
+        result.GetComponentInChildren<Text>().text = "Sorry, Game Over. Try you best next time!";
         //destory object
     }
 }

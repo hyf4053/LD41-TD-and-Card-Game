@@ -123,6 +123,7 @@
      <Compile Include="Assets\Script\Infinite\PlayerMotor.cs" />
      <Compile Include="Assets\Script\Infinite\TileManager.cs" />
      <Compile Include="Assets\Script\InitCardDrop.cs" />
+     <Compile Include="Assets\Script\MagiAttack.cs" />
      <Compile Include="Assets\Script\Monster\EnemyAttack.cs" />
      <Compile Include="Assets\Script\Monster\EnemyHealth.cs" />
      <Compile Include="Assets\Script\Monster\EnemyManager.cs" />

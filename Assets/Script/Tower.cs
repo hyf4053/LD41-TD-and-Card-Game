@@ -10,7 +10,10 @@ public class Tower : MonoBehaviour {
     public float range = 300f;
     public float fireRate = 1f;
     private float fireCountdown = 0f;
-    private int attackDamage = 1;
+    public int attackDamage;
+
+    private Renderer rend;
+    private Color startColor;
 
     EnemyHealth enemyHealth;
 
@@ -24,8 +27,20 @@ public class Tower : MonoBehaviour {
     // Use this for initialization
     void Start () {
         InvokeRepeating("UpdateTarget",0f,0.5f);
+        rend = GetComponentInChildren<Renderer>();
+        startColor = rend.material.color;
 	}
-	
+
+    private void OnMouseEnter()
+    {
+        rend.material.color = Color.gray;
+    }
+
+    private void OnMouseExit()
+    {
+        rend.material.color = startColor;
+    }
+
     void UpdateTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
