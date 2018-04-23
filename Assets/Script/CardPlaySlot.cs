@@ -8,8 +8,11 @@ public class CardPlaySlot : MonoBehaviour {
     public Color hoverColor,startcolor;
     public Vector3 offset;
     public GameObject tower;
+
+    TowerManager towerManager;
     
     private Renderer rend;
+    public bool isOccupied;
     // Use this for initialization
     void Start () {
         upSlot = false;
@@ -23,10 +26,15 @@ public class CardPlaySlot : MonoBehaviour {
         offset.x = 0;
         offset.y = 0.3f;
         offset.z = 0;
+        towerManager = TowerManager.instance;
+        isOccupied = false;
     }
 
     private void OnMouseDown()
     {
+        if(towerManager.GetTowerToBuild() == null)
+            return;
+        
         if(tower != null)
         {
             Debug.Log("We can't build here ! - TODO: display on screen");
@@ -36,16 +44,20 @@ public class CardPlaySlot : MonoBehaviour {
         //Build a turret
         GameObject towerToBuild = TowerManager.instance.GetTowerToBuild();
         tower = (GameObject)Instantiate(towerToBuild, transform.position+ offset, transform.rotation);
+        isOccupied = true;
         Debug.Log("Build");
     }
     
     private void OnMouseEnter()
     {
+          if(towerManager.GetTowerToBuild() == null)
+            return;
         rend.material.color = hoverColor;
     }
 
     private void OnMouseExit()
     {
+          
         rend.material.color = startcolor;
     }
 

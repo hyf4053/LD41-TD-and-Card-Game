@@ -8,18 +8,62 @@ public class CardUsing : MonoBehaviour {
     public GameObject[] tile;
     bool cardChoose = false;
 
+    int cardCost;
+    TowerManager towerManager;
+    void Start(){
+        towerManager = TowerManager.instance;
+    }
+
+    public void SetTTower(){
+        towerManager.SetCardToUse(towerManager.towerPrefab);
+        cardChoose = true;
+        cardCost = 2;
+    }
+
+    public void SetMagicCard(){
+        towerManager.SetCardToUse(towerManager.magicCardPrefab);
+        cardChoose = true;
+    }
+
+    public void SetToNull(){
+        towerManager.SetCardToUse(null);
+        cardChoose = false;
+    }
     public void SetBuildingMode()
     {
+        /* 
         for (int i = 0; i < tile.Length; i++)
         {
             tile[i].AddComponent<CardPlaySlot>();
             //Destroy(tile[i].GetComponent<CardPlaySlot>());
         }
         cardChoose = true;
+        */
     }
 
     private void Update()
     {
+        if (cardChoose)
+        {
+            this.GetComponent<Image>().enabled = false;
+            bool a,b,c,d,e,f,g,h,i;
+             a = tile[0].GetComponent<CardPlaySlot>().isOccupied;
+             b = tile[0].GetComponent<CardPlaySlot>().isOccupied;
+             c = tile[0].GetComponent<CardPlaySlot>().isOccupied;
+             d = tile[0].GetComponent<CardPlaySlot>().isOccupied;
+             e = tile[0].GetComponent<CardPlaySlot>().isOccupied;
+             f = tile[0].GetComponent<CardPlaySlot>().isOccupied;
+             g = tile[0].GetComponent<CardPlaySlot>().isOccupied;
+             h = tile[0].GetComponent<CardPlaySlot>().isOccupied;
+             i = tile[0].GetComponent<CardPlaySlot>().isOccupied;
+         if (Input.GetMouseButtonDown(0)&&tile[0].GetComponent<CardPlaySlot>().tower == null)
+        {
+            SetToNull();
+        }
+
+
+
+        /* 
         if (cardChoose)
         {
             this.GetComponent<Image>().enabled = false;
@@ -49,6 +93,7 @@ public class CardUsing : MonoBehaviour {
 
             this.GetComponent<Image>().enabled = true;
             cardChoose = false;
+        }*/
         }
     }
 

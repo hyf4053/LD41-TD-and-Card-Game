@@ -17,7 +17,9 @@ public class TowerManager : MonoBehaviour {
     }
 
     public GameObject towerPrefab;
-
+    public GameObject magicCardPrefab;
+    public GameObject trapCardPrefab;
+    
     private GameObject towerToBuild;
 
     public GameObject GetTowerToBuild()
@@ -25,11 +27,10 @@ public class TowerManager : MonoBehaviour {
         return towerToBuild;
     }
 
-	// Use this for initialization
-	void Start () {
-        towerToBuild = towerPrefab;
-	}
-	
+	public void SetCardToUse(GameObject card){
+        towerToBuild = card;
+    }
+
 	// Update is called once per frame
 	void Update () {
 		

@@ -51,9 +51,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Low Poly Modular Terrain Pack\Bonus_Assets\Scripts\ModularTerrainCameraControl.cs" />
-     <Compile Include="Assets\Low Poly Modular Terrain Pack\Bonus_Assets\Scripts\ModularTerrainCloudsControl.cs" />
-     <Compile Include="Assets\Low Poly Modular Terrain Pack\Bonus_Assets\Scripts\ModularTerrainSunControl.cs" />
      <Compile Include="Assets\Placement Kit\Example Project Files\Scripts\GUIScript.cs" />
      <Compile Include="Assets\Placement Kit\Placement Kit Files\Scripts\BuildingCollision.cs" />
      <Compile Include="Assets\Placement Kit\Placement Kit Files\Scripts\BuildingList.cs" />
@@ -111,13 +108,21 @@
      <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
      <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
      <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
+     <Compile Include="Assets\Script\Block.cs" />
+     <Compile Include="Assets\Script\Bullet.cs" />
      <Compile Include="Assets\Script\CameraController.cs" />
-     <Compile Include="Assets\Script\Card\Placement\CardHolder.cs" />
-     <Compile Include="Assets\Script\CardHolder.cs" />
+     <Compile Include="Assets\Script\Card\Card.cs" />
+     <Compile Include="Assets\Script\Card\DropCard.cs" />
+     <Compile Include="Assets\Script\Card\HandCard.cs" />
+     <Compile Include="Assets\Script\Card\IHandCard.cs" />
+     <Compile Include="Assets\Script\Card\ItemDragHandler.cs" />
+     <Compile Include="Assets\Script\Card\ItemDropHandler.cs" />
      <Compile Include="Assets\Script\CardPlaySlot.cs" />
+     <Compile Include="Assets\Script\CardUsing.cs" />
      <Compile Include="Assets\Script\Infinite\CameraMotor.cs" />
      <Compile Include="Assets\Script\Infinite\PlayerMotor.cs" />
      <Compile Include="Assets\Script\Infinite\TileManager.cs" />
+     <Compile Include="Assets\Script\Monster\EnemyAttack.cs" />
      <Compile Include="Assets\Script\Monster\EnemyHealth.cs" />
      <Compile Include="Assets\Script\Monster\EnemyManager.cs" />
      <Compile Include="Assets\Script\Monster\EnemyOneMovement.cs" />
@@ -125,6 +130,12 @@
      <Compile Include="Assets\Script\Monster\EnemyTwoMovement.cs" />
      <Compile Include="Assets\Script\MouseDragCard.cs" />
      <Compile Include="Assets\Script\Player\PlayerHealth.cs" />
+     <Compile Include="Assets\Script\Player\PlayerShooting.cs" />
+     <Compile Include="Assets\Script\PlayerController.cs" />
+     <Compile Include="Assets\Script\Tower.cs" />
+     <Compile Include="Assets\Script\TowerHealth.cs" />
+     <Compile Include="Assets\Script\TowerManager.cs" />
+     <Compile Include="Assets\Script\TurnControll.cs" />
      <Compile Include="Assets\Script\UIScripts.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
